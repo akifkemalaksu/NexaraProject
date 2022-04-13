@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NexaraProject.Business.Abstracts\NexaraProject.Business.Abstracts.csproj" />
+    <ProjectReference Include="..\NexaraProject.DataAccess\NexaraProject.DataAccess.csproj" />
+  </ItemGroup>
+
 </Project>

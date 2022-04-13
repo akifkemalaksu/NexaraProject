@@ -7,9 +7,14 @@ namespace NexaraProject.DataAccess.EntityFramework
 {
     public class NexaraContext : DbContext
     {
+        public NexaraContext()
+        {
+            Database.EnsureCreated();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseNpgsql("");
+            optionsBuilder.UseNpgsql("User ID=postgres;Password=3797;Host=localhost;Port=5432;Database=NexaraDB;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
