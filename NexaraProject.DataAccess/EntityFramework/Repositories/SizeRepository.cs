@@ -4,10 +4,7 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.DataAccess.EntityFramework.Repositories
 {
-    public class SizeRepository : EntityFrameworkRepositoryBase<NexaraContext, Size, int>, ISizeRepository
+    public class SizeRepository : EntityFrameworkRepositoryBase<Size, int>, ISizeRepository
     {
-        public SizeRepository(NexaraContext dbContext) : base(dbContext)
-        {
-        }
     }
 }

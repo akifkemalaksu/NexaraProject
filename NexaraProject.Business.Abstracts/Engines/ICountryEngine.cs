@@ -1,7 +1,7 @@
-﻿using NexaraProject.Core.Business;
-using NexaraProject.Core.Utilities.Results;
+﻿using NexaraProject.Core.Utilities.Results;
 using NexaraProject.Entities.Concretes;
 using System;
+using NexaraProject.Core.Business.Abstracts;
 
 namespace NexaraProject.Business.Abstracts.Engines
 {

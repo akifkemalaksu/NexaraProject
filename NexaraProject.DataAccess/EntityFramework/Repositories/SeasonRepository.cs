@@ -4,10 +4,7 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.DataAccess.EntityFramework.Repositories
 {
-    public class SeasonRepository : EntityFrameworkRepositoryBase<NexaraContext, Season, int>, ISeasonRepository
+    public class SeasonRepository : EntityFrameworkRepositoryBase<Season, int>, ISeasonRepository
     {
-        public SeasonRepository(NexaraContext dbContext) : base(dbContext)
-        {
-        }
     }
 }

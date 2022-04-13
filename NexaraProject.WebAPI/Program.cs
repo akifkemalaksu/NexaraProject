@@ -1,10 +1,17 @@
 using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using Microsoft.EntityFrameworkCore;
 using NexaraProject.Business.DependencyResolvers.Autofac;
+using NexaraProject.Core.Extensions;
+using NexaraProject.DataAccess.EntityFramework;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+
+builder.Services.AddScoped<DbContext, NexaraContext>();
+
+builder.Services.AddDependencyResolvers();
 
 builder.Host.UseServiceProviderFactory(new AutofacServiceProviderFactory())
     .ConfigureContainer<ContainerBuilder>(builder =>

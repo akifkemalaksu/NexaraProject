@@ -1,4 +1,5 @@
 ﻿using NexaraProject.Business.Abstracts.Engines;
+using NexaraProject.Core.Business.Concretes;
 using NexaraProject.Core.Utilities.Results;
 using NexaraProject.DataAccess.Abstracts.Repositories;
 using NexaraProject.Entities.Concretes;
@@ -6,7 +7,7 @@ using System;
 
 namespace NexaraProject.Business.Engines
 {
-    public class ColorEngine : IColorEngine
+    public class ColorEngine : BusinessEngineBase, IColorEngine
     {
         private readonly IColorRepository _colorRepository;
 

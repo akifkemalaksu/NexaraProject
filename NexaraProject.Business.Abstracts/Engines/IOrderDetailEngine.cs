@@ -1,4 +1,4 @@
-﻿using NexaraProject.Core.Business;
+﻿using NexaraProject.Core.Business.Abstracts;
 
 namespace NexaraProject.Business.Abstracts.Engines
 {

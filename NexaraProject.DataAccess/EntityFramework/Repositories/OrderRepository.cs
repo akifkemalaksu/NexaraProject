@@ -4,10 +4,7 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.DataAccess.EntityFramework.Repositories
 {
-    public class OrderRepository : EntityFrameworkRepositoryBase<NexaraContext, Order, int>, IOrderRepository
+    public class OrderRepository : EntityFrameworkRepositoryBase<Order, int>, IOrderRepository
     {
-        public OrderRepository(NexaraContext dbContext) : base(dbContext)
-        {
-        }
     }
 }

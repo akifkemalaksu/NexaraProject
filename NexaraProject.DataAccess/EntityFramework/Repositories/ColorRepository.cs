@@ -5,10 +5,7 @@ using System;
 
 namespace NexaraProject.DataAccess.EntityFramework.Repositories
 {
-    public class ColorRepository : EntityFrameworkRepositoryBase<NexaraContext, Color, int>, IColorRepository
+    public class ColorRepository : EntityFrameworkRepositoryBase<Color, int>, IColorRepository
     {
-        public ColorRepository(NexaraContext dbContext) : base(dbContext)
-        {
-        }
     }
 }
