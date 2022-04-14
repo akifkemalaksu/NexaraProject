@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using NexaraProject.Entities.Concretes;
+using NexaraProject.Entities.RequestModels;
 using System;
 
 namespace NexaraProject.Business.Mappings.AutoMapper
@@ -7,6 +9,11 @@ namespace NexaraProject.Business.Mappings.AutoMapper
     {
         public AutoMapperProfile()
         {
+            CreateMap<AddCountryModel, Country>();
+
+            CreateMap<AddOrderDetailModel, OrderDetail>();
+
+            CreateMap<AddOrderModel, Order>();
         }
     }
 }

@@ -5,7 +5,7 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.Business.Engines
 {
-    public class SizeEngine : ISizeEngine
+    public class SizeEngine : BusinessEngineBase, ISizeEngine
     {
         private readonly ISizeRepository _sizeRepository;
 
@@ -17,6 +17,11 @@ namespace NexaraProject.Business.Engines
         public IDataResult<ICollection<Size>> GetSizes()
         {
             return new SuccessDataResult<ICollection<Size>>(_sizeRepository.GetList());
+        }
+
+        public IDataResult<ICollection<Size>> GetSizesBySizeSet(int sizeSetId)
+        {
+            return new SuccessDataResult<ICollection<Size>>(_sizeRepository.GetSizesBySizeSet(sizeSetId));
         }
     }
 }

@@ -5,7 +5,7 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.Business.Engines
 {
-    public class ProductModelEngine : IProductModelEngine
+    public class ProductModelEngine : BusinessEngineBase, IProductModelEngine
     {
         private readonly IProductModelRepository _productModelRepository;
 

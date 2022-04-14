@@ -5,7 +5,7 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.Business.Engines
 {
-    public class PatternEngine : IPatternEngine
+    public class PatternEngine : BusinessEngineBase, IPatternEngine
     {
         private readonly IPatternRepository _patternRepository;
 

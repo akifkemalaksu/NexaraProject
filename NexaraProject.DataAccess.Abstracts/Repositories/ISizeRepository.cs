@@ -5,5 +5,6 @@ namespace NexaraProject.DataAccess.Abstracts.Repositories
 {
     public interface ISizeRepository : IRepository<Size, int>
     {
+        public ICollection<Size> GetSizesBySizeSet(int sizeSetId);
     }
 }

@@ -5,7 +5,7 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.Business.Engines
 {
-    public class SeasonEngine : ISeasonEngine
+    public class SeasonEngine : BusinessEngineBase, ISeasonEngine
     {
         private readonly ISeasonRepository _seasonRepository;
 

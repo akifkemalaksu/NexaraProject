@@ -12,8 +12,6 @@ namespace NexaraProject.Core.DataAccess
 
         void Delete(TKey key);
 
-        void Delete(TEntity entity);
-
         TEntity Update(TEntity entity);
 
         TEntity Get(TKey key);

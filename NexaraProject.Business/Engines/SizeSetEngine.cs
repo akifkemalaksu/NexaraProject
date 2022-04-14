@@ -5,7 +5,7 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.Business.Engines
 {
-    public class SizeSetEngine : ISizeSetEngine
+    public class SizeSetEngine : BusinessEngineBase, ISizeSetEngine
     {
         private readonly ISizeSetRepository _sizeSetRepository;
 

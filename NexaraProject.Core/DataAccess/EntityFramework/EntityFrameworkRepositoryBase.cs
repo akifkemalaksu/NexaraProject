@@ -25,6 +25,7 @@ namespace NexaraProject.Core.DataAccess.EntityFramework
 
         public TEntity Add(TEntity entity)
         {
+            entity.CreateDate = DateTime.Now;
             _dbSet.Add(entity);
             return entity;
         }
@@ -33,11 +34,6 @@ namespace NexaraProject.Core.DataAccess.EntityFramework
         {
             var entity = Get(key);
             Delete(entity);
-        }
-
-        public void Delete(TEntity entity)
-        {
-            _dbSet.Remove(entity);
         }
 
         public TEntity Get(TKey key)
@@ -59,9 +55,15 @@ namespace NexaraProject.Core.DataAccess.EntityFramework
 
         public TEntity Update(TEntity entity)
         {
+            entity.EditDate = DateTime.Now;
             _dbContext.ChangeTracker.Clear();
             _dbSet.Update(entity);
             return entity;
+        }
+
+        private void Delete(TEntity entity)
+        {
+            _dbSet.Remove(entity);
         }
 
         public void SaveChanges()

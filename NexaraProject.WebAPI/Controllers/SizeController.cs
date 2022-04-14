@@ -1,24 +1,23 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NexaraProject.Business.Abstracts.Engines;
-using NexaraProject.Entities.RequestModels;
 
 namespace NexaraProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CountryController : ControllerBase
+    public class SizeController : ControllerBase
     {
-        private readonly ICountryEngine _countryEngine;
+        private readonly ISizeEngine _sizeEngine;
 
-        public CountryController(ICountryEngine countryEngine)
+        public SizeController(ISizeEngine sizeEngine)
         {
-            _countryEngine = countryEngine;
+            _sizeEngine = sizeEngine;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var result = _countryEngine.GetCountries();
+            var result = _sizeEngine.GetSizes();
             if (result.Success)
             {
                 return Ok(result);
@@ -26,10 +25,10 @@ namespace NexaraProject.WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpPost]
-        public IActionResult Post(AddCountryModel addCountryModel)
+        [HttpGet("GetSizesBySizeSet/{sizeSetId}")]
+        public IActionResult GetSizesBySizeSet(int sizeSetId)
         {
-            var result = _countryEngine.AddCountry(addCountryModel);
+            var result = _sizeEngine.GetSizesBySizeSet(sizeSetId);
             if (result.Success)
             {
                 return Ok(result);
