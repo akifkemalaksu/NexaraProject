@@ -18,7 +18,6 @@ namespace NexaraProject.Business.Engines
         {
             _orderDetailRepository.Add(orderDetail);
             _orderDetailRepository.SaveChanges();
-            _orderDetailRepository.Dispose();
             return new SuccessResult();
         }
     }

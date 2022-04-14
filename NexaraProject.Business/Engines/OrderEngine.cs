@@ -1,4 +1,5 @@
 ﻿using NexaraProject.Business.Abstracts.Engines;
+using NexaraProject.Core.Aspects.Transaction;
 using NexaraProject.Core.Utilities.Results;
 using NexaraProject.DataAccess.Abstracts.Repositories;
 using NexaraProject.Entities.Concretes;
@@ -17,6 +18,7 @@ namespace NexaraProject.Business.Engines
             _orderDetailEngine = orderDetailEngine;
         }
 
+        [TransactionScopeAspect]
         public IResult AddOrder(AddOrderModel addOrder)
         {
             Order order = _mapper.Map<Order>(addOrder);
@@ -29,7 +31,6 @@ namespace NexaraProject.Business.Engines
                 _orderDetailEngine.AddOrderDetail(orderDetail);
             });
 
-            _orderRepository.Dispose();
             return new SuccessResult();
         }
     }

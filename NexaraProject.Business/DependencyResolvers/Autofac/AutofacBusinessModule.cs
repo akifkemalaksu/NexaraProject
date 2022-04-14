@@ -1,8 +1,11 @@
 ﻿using Autofac;
+using Autofac.Extras.DynamicProxy;
 using AutoMapper;
+using Castle.DynamicProxy;
 using NexaraProject.Business.Abstracts.Engines;
 using NexaraProject.Business.Engines;
 using NexaraProject.Business.Mappings.AutoMapper;
+using NexaraProject.Core.Utilities.Interceptors;
 using NexaraProject.DataAccess.Abstracts.Repositories;
 using NexaraProject.DataAccess.EntityFramework.Repositories;
 using System;
@@ -38,6 +41,13 @@ namespace NexaraProject.Business.DependencyResolvers.Autofac
             {
                 cfg.AddProfile<AutoMapperProfile>();
             })).AsSelf().SingleInstance();
+
+            var assembly = System.Reflection.Assembly.GetExecutingAssembly();
+            builder.RegisterAssemblyTypes(assembly).AsImplementedInterfaces()
+                .EnableInterfaceInterceptors(new ProxyGenerationOptions()
+                {
+                    Selector = new AspectInterceptorSelector()
+                }).SingleInstance();
         }
     }
 }

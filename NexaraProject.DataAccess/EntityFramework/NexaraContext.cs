@@ -9,7 +9,7 @@ namespace NexaraProject.DataAccess.EntityFramework
     {
         public NexaraContext()
         {
-            Database.EnsureCreated();
+            //Database.EnsureCreated();
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
