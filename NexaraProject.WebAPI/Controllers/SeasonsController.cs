@@ -5,19 +5,19 @@ namespace NexaraProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class PatternController : ControllerBase
+    public class SeasonsController : ControllerBase
     {
-        private readonly IPatternEngine _patternEngine;
+        private readonly ISeasonEngine _seasonEngine;
 
-        public PatternController(IPatternEngine patternEngine)
+        public SeasonsController(ISeasonEngine seasonEngine)
         {
-            _patternEngine = patternEngine;
+            _seasonEngine = seasonEngine;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var result = _patternEngine.GetPatterns();
+            var result = _seasonEngine.GetSeasons();
             if (result.Success)
             {
                 return Ok(result);

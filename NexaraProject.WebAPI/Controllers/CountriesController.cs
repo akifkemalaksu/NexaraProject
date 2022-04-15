@@ -6,11 +6,11 @@ namespace NexaraProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CountryController : ControllerBase
+    public class CountriesController : ControllerBase
     {
         private readonly ICountryEngine _countryEngine;
 
-        public CountryController(ICountryEngine countryEngine)
+        public CountriesController(ICountryEngine countryEngine)
         {
             _countryEngine = countryEngine;
         }

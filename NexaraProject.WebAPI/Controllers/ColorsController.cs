@@ -5,19 +5,19 @@ namespace NexaraProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProductModelController : ControllerBase
+    public class ColorsController : ControllerBase
     {
-        private readonly IProductModelEngine _productModelEngine;
+        private readonly IColorEngine _colorEngine;
 
-        public ProductModelController(IProductModelEngine productModelEngine)
+        public ColorsController(IColorEngine colorEngine)
         {
-            _productModelEngine = productModelEngine;
+            _colorEngine = colorEngine;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var result = _productModelEngine.GetProductModels();
+            var result = _colorEngine.GetColours();
             if (result.Success)
             {
                 return Ok(result);

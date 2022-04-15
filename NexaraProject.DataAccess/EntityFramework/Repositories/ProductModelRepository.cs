@@ -4,7 +4,10 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.DataAccess.EntityFramework.Repositories
 {
-    public class ProductModelRepository : EntityFrameworkRepositoryBase<ProductModel, int>, IProductModelRepository
+    public class ProductModelRepository : EntityFrameworkRepositoryBase<NexaraContext, ProductModel, int>, IProductModelRepository
     {
+        public ProductModelRepository(NexaraContext dbContext) : base(dbContext)
+        {
+        }
     }
 }

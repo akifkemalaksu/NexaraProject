@@ -5,19 +5,19 @@ namespace NexaraProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SeasonController : ControllerBase
+    public class ProductModelsController : ControllerBase
     {
-        private readonly ISeasonEngine _seasonEngine;
+        private readonly IProductModelEngine _productModelEngine;
 
-        public SeasonController(ISeasonEngine seasonEngine)
+        public ProductModelsController(IProductModelEngine productModelEngine)
         {
-            _seasonEngine = seasonEngine;
+            _productModelEngine = productModelEngine;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var result = _seasonEngine.GetSeasons();
+            var result = _productModelEngine.GetProductModels();
             if (result.Success)
             {
                 return Ok(result);

@@ -5,19 +5,19 @@ namespace NexaraProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ColorController : ControllerBase
+    public class PatternsController : ControllerBase
     {
-        private readonly IColorEngine _colorEngine;
+        private readonly IPatternEngine _patternEngine;
 
-        public ColorController(IColorEngine colorEngine)
+        public PatternsController(IPatternEngine patternEngine)
         {
-            _colorEngine = colorEngine;
+            _patternEngine = patternEngine;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var result = _colorEngine.GetColours();
+            var result = _patternEngine.GetPatterns();
             if (result.Success)
             {
                 return Ok(result);

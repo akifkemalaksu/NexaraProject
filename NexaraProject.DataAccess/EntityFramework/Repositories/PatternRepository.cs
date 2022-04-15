@@ -4,7 +4,10 @@ using NexaraProject.Entities.Concretes;
 
 namespace NexaraProject.DataAccess.EntityFramework.Repositories
 {
-    public class PatternRepository : EntityFrameworkRepositoryBase<Pattern, int>, IPatternRepository
+    public class PatternRepository : EntityFrameworkRepositoryBase<NexaraContext, Pattern, int>, IPatternRepository
     {
+        public PatternRepository(NexaraContext dbContext) : base(dbContext)
+        {
+        }
     }
 }

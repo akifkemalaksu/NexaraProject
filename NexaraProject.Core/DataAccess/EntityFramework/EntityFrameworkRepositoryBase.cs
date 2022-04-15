@@ -1,23 +1,22 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 using NexaraProject.Core.Entities;
-using NexaraProject.Core.Utilities.InversionOfControl;
 using System;
 using System.Linq.Expressions;
 
 namespace NexaraProject.Core.DataAccess.EntityFramework
 {
-    public class EntityFrameworkRepositoryBase<TEntity, TKey> : IRepository<TEntity, TKey>
+    public class EntityFrameworkRepositoryBase<TContext, TEntity, TKey> : IRepository<TEntity, TKey>
+    where TContext : DbContext, new()
     where TEntity : class, IEntity<TKey>, new()
     where TKey : struct
     {
-        protected readonly DbContext _dbContext;
+        protected readonly TContext _dbContext;
         protected readonly DbSet<TEntity> _dbSet;
         private bool _disposed = false;
 
-        protected EntityFrameworkRepositoryBase()
+        public EntityFrameworkRepositoryBase(TContext dbContext)
         {
-            _dbContext = ServiceTool.serviceProvider.GetService<DbContext>();
+            _dbContext = dbContext;
             _dbSet = _dbContext.Set<TEntity>();
         }
 

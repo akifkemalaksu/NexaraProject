@@ -25,7 +25,6 @@ namespace NexaraProject.Business.Engines
             var country = _mapper.Map<Country>(addCountry);
             _countryRepository.Add(country);
             _countryRepository.SaveChanges();
-            _countryRepository.Dispose();
             return new SuccessResult();
         }
     }

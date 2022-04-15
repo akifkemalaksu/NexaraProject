@@ -5,11 +5,11 @@ namespace NexaraProject.WebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SizeSetController : ControllerBase
+    public class SizeSetsController : ControllerBase
     {
         private readonly ISizeSetEngine _sizeSetEngine;
 
-        public SizeSetController(ISizeSetEngine sizeSetEngine)
+        public SizeSetsController(ISizeSetEngine sizeSetEngine)
         {
             _sizeSetEngine = sizeSetEngine;
         }
